@@ -6,8 +6,8 @@ const app = express();
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = 443;
 
 app.listen(PORT, async () => {
-  console.log(process.env);
+  console.log(process.env.RAILWAY_PUBLIC_DOMAIN, process.env.PORT);
 });
