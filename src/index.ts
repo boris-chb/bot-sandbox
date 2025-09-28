@@ -1,4 +1,3 @@
-import { serve } from "bun";
 import { Telegraf } from "telegraf";
 
 const bot = new Telegraf(process.env.BOT_TOKEN || "");
@@ -7,7 +6,7 @@ const DOMAIN = process.env.RAILWAY_PUBLIC_DOMAIN || "";
 
 bot.start((ctx) => ctx.reply(`Running on ${DOMAIN}:${PORT}!`));
 
-const server = serve({
+const server = Bun.serve({
   port: PORT,
   async fetch(req) {
     if (req.method === "POST") {
