@@ -21,19 +21,22 @@ if (isProd) {
     },
   });
 
-  bot.telegram
-    .setWebhook(`${DOMAIN}`)
-    .then(() => console.log("[🤖] Bot running on webhook:", `${DOMAIN}`))
-    .catch(console.error);
+  try {
+    const me = await bot.telegram.getMe();
+    console.log("[🤖] Bot running on webhook:", `${DOMAIN}`);
+    await bot.telegram.setWebhook(`${DOMAIN}`);
+  } catch (error) {
+    console.error("Failed setting webhook:", error);
+    process.exit(1);
+  }
 } else {
   // Test API connection
   try {
     const me = await bot.telegram.getMe();
     console.log(`[🤖] ${me.username} running locally:`, PORT);
+    await bot.launch({ dropPendingUpdates: true });
   } catch (error) {
     console.error("API connection failed:", error);
     process.exit(1);
   }
-
-  await bot.launch({ dropPendingUpdates: true });
 }
