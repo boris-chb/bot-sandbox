@@ -19,10 +19,10 @@ const playerData = {
 export async function startHandler(ctx: Context) {
   const { id, username } = ctx.from!;
 
-  const client = await logIn({
-    email: playerData.email,
-    password: playerData.password,
-  });
+  // const client = await logIn({
+  //   email: playerData.email,
+  //   password: playerData.password,
+  // });
 
   const currentUser = await getOrCreateUser(id, username!);
 
