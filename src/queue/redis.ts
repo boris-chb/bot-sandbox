@@ -6,5 +6,5 @@ export const connection: ConnectionOptions = {
   host: env.REDISHOST,
   port: env.REDISPORT,
   username: env.REDISUSER,
-  password: env.REDISPASSWORD,
+  password: env.REDIS_PASSWORD,
 };
