@@ -1,11 +1,10 @@
+import { env } from "@/env";
+import type { ConnectionOptions } from "bullmq";
 import type { RedisOptions } from "ioredis";
 
-export const connection: RedisOptions = {
-  host: "interchange.proxy.rlwy.net",
-  port: 28900,
-  username: "default",
-  password: "YGkUkiWRSIutrgPLpsSjEuDKcRmIeiZp",
-  tls: {}, // because Railway public Redis requires TLS
+export const connection: ConnectionOptions = {
+  host: env.REDISHOST,
+  port: env.REDISPORT,
+  username: env.REDISUSER,
+  password: env.REDISPASSWORD,
 };
-
-console.log(connection);
