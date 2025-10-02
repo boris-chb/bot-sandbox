@@ -3,8 +3,8 @@ import { Pool } from "pg";
 
 const isProd = process.env.NODE_ENV === "production";
 const dbUrl = isProd
-  ? process.env.DATABASE_URL_PRIVATE
-  : process.env.DATABASE_URL_PUBLIC;
+  ? process.env.DATABASE_PRIVATE_URL
+  : process.env.DATABASE_PUBLIC_URL;
 
 const pool = new Pool({
   connectionString: dbUrl, // your railway private URL
