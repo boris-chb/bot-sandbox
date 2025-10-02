@@ -4,7 +4,7 @@ export const env = envsafe({
   REDISHOST: str(),
   REDISPORT: port(),
   REDISUSER: str(),
-  REDISPASSWORD: str(),
+  REDIS_PASSWORD: str(),
   PORT: port({
     devDefault: 3000,
   }),
