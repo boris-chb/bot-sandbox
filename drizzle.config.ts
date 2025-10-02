@@ -7,7 +7,7 @@ export default defineConfig({
   dbCredentials: {
     url:
       process.env.NODE_ENV === "production"
-        ? process.env.PRIVATE_DATABASE_URL!
-        : process.env.PUBLIC_DATABASE_URL!,
+        ? process.env.DATABASE_URL_PRIVATE!
+        : process.env.DATABASE_URL_PUBLIC!,
   },
 });
