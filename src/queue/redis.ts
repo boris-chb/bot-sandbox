@@ -1,6 +1,4 @@
-import { env } from "@/env";
 import type { ConnectionOptions } from "bullmq";
-import type { RedisOptions } from "ioredis";
 
 const redisURL = new URL(process.env.REDIS_URL!);
 
